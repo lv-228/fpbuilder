@@ -50,16 +50,6 @@ class DatabaseTest
             'SELECT name FROM users WHERE `user_id` IN (1, 2, 3) AND block = 1',
         ];
 
-        foreach($correct as $corr) {
-            var_dump($corr); echo '<br>';
-        }
-
-        echo '<br>';
-
-        foreach($results as $res) {
-            var_dump($res); echo '<br>';
-        }
-
         if ($results !== $correct) {
             throw new Exception('Failure.');
         }
