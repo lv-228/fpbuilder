@@ -69,7 +69,10 @@ class typeHandler {
 
     private function intArgHandler($value, $spec) {
         $type = gettype($value);
-        if ($type !== 'integer' && $value !== '@null' && $type !== 'boolean') {
+        if($type === 'boolean') {
+            return [(int)$value];
+        }
+        if ($type !== 'integer' && $value !== '@null') {
             $this->exceptions->getError('arg_int_error');
         }
         return [$value];
